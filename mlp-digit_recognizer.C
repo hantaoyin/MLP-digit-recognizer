@@ -336,9 +336,9 @@ void debug_draw_greyscale(const vector<double>&data, size_t width, size_t height
   assert(data.size() == width * height);
 
   const size_t num_scales = colormap.size() - 1;
-  for (size_t i = 1; i <= width * height; ++i) {
+  for (size_t i = 0; i < width * height; ++i) {
     ofs << colormap[size_t(data[i] * num_scales)];
-    if (i % width == 0) {
+    if ((i + 1) % width == 0) {
       ofs << "\n";
     }
   }
